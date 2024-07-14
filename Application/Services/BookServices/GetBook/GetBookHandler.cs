@@ -1,4 +1,5 @@
 ﻿using Application.Comman;
+using Application.Services.BookServices.GetBook;
 using AutoMapper;
 using AutoMapper.Configuration.Annotations;
 using Domain.Interface.IBook;
@@ -13,8 +14,8 @@ namespace Application.Services.Book.GetBook
 {
     public class GetBookHandler : IRequestHandler<GetBookQuery, List<GetBooKVM>>
     {
-        public readonly IBookRepository _bookRepository;
-        public readonly IMapper _mapper;
+            public readonly IBookRepository _bookRepository;
+            public readonly IMapper _mapper;
         public GetBookHandler(IBookRepository bookRepository, IMapper mapping)
         {
             _bookRepository = bookRepository;

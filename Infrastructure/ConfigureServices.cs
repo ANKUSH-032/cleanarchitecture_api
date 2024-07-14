@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Domain.Interface.IBook;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Infrastructure
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection serviceDescriptors, 
                                                                      IConfiguration configurtion)
         {
+           // serviceDescriptors.AddTransient<IBookRepository, BookRepository>();
             return serviceDescriptors;
         }
     }

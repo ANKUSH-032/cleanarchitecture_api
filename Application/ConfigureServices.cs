@@ -11,15 +11,15 @@ namespace Application
 {
     public static class ConfigureServices 
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection serviceDescriptors)
+        public static IServiceCollection AddApplicationServices(this IServiceCollection serviceCollection)
         {
-            serviceDescriptors.AddAutoMapper(Assembly.GetExecutingAssembly());
-            serviceDescriptors.AddMediatR(service =>
+            serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
+            serviceCollection.AddMediatR(service =>
             {
                 service.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
                 
             });
-            return serviceDescriptors;
+            return serviceCollection;
         }
     }
 }

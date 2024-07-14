@@ -12,7 +12,7 @@ namespace Domain.Interface.IBook
         Task<List<BookDetails>> GetALlBookList();
         Task<BookDetails> GetBookDataById(int id);
         Task<BookInsert> CreateAsync(BookInsert bookInsert);
-        Task<BookUpdate> UpdateBookAsync(BookUpdate bookUpdate);
+        Task<int> UpdateBookAsync(int bookId, BookUpdate bookUpdate);
         Task<int> DeleteAsync(int id);
     }
 }
