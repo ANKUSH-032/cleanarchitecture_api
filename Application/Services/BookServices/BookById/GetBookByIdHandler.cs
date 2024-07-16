@@ -24,7 +24,7 @@ namespace Application.Services.BookServices.BookById
         }
         public async Task<BookDetails> Handle(GetBookById request, CancellationToken cancellationToken)
         {
-            var bookDetails = await _bookRepository.GetBookDataById(request.BookId);
+            var bookDetails = await _bookRepository.GetBookDataById(request.Id);
 
             // Comman Method For Mapp the  data .
 

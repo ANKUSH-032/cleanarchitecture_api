@@ -32,7 +32,7 @@ namespace Application.Services.BookServices.UpdateBook
 
             };
 
-            return await _bookRepository.UpdateBookAsync(request.BookID, requestData);
+            return await _bookRepository.UpdateBookAsync(request.Id, requestData);
             //return _mapper.Map<int>(book);
         }
     }

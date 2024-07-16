@@ -1,4 +1,7 @@
 ﻿using Domain.Interface.IBook;
+using Infrastructure.Data;
+using Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -12,10 +15,14 @@ namespace Infrastructure
 {
     public static class ConfigureServices
     {
-        public static IServiceCollection AddInfrastructureServices(this IServiceCollection serviceDescriptors, 
+        public static IServiceCollection AddInfrastructureServices(this IServiceCollection serviceDescriptors,
                                                                      IConfiguration configurtion)
         {
-           // serviceDescriptors.AddTransient<IBookRepository, BookRepository>();
+            serviceDescriptors.AddDbContext<BookDbContext>(options =>
+                                                options.UseSqlServer(configurtion.GetConnectionString("LibraryManagement") ??
+                                                throw new InvalidOperationException("connection")
+                                                ));
+          serviceDescriptors.AddTransient<IBookRepository, BookRepository>();
             return serviceDescriptors;
         }
     }

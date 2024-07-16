@@ -11,6 +11,6 @@ namespace Application.Services.BookServices.BookById
 {
     public class GetBookById : IRequest<BookDetails>
     {
-        public int BookId { get; set; }
+        public int Id { get; set; }
     }
 }
